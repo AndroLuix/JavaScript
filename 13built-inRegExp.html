@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display">Ciao mondo, Ciao Pianeta</p>
+<p id="display"></p>
+<p id="display"></p>
+<p id="display"></p>
+    <p id="display"></p>
+
+
+    <script>
+
+        //espressione regolare: serve per trovare per esempio la letttera 'o'
+        //alli'interno di una stringa, oppure una frase o un numero.
+        //Serve per fare richerche nei testi
+
+
+        //oggetto RegExp
+        let testo = document.getElementById('display').innerHTML;
+            //due metodi die spressione regolare di uguale fien
+        let pattern0 = /o/;
+        let alternativa = new RegExp('o');
+
+
+            //e in seguito fare: metodo test()
+        console.log(pattern0.test(testo));
+        console.log(/w/.test(testo));
+
+
+        //flags: i g m          y:ES6
+            //con questo metodo non fa differenza tra stampatello e minsucolo 
+            //di una lettera o frase
+        console.log(/A/i.test(testo));
+            //senza flag i
+       
+        console.log(/A/.test(testo));
+            //serve anche per cercare più lettere insieme seguite
+        console.log (/io/i.test(testo));
+
+            //altro metodo
+            //le parentesi quadrate servono per cercare 'r' oppure 's' oppure una 't'
+        let pattern1 = new RegExp('[rst]','i'); //basta solo una di queste lettere per avere come risultato "true"
+        console.log(pattern1.test(testo));
+
+        
+        let false0 = new RegExp('[rs]','i'); //basta solo una di queste lettere per 
+            //avere come risultato "true" IN QUESTO CASO E' FALSO
+            //PERCHE' MANCA LA T
+        console.log(false0.test(testo));
+        
+        //altro esempio
+            //troviamo da un numero da 0 a 5
+        let pattern2 = new RegExp('[0-5]', 'i');
+        console.log(pattern2.test(testo));
+        console.log('')
+
+        //FLAG GLOBAL
+        let pattern3 = /o/g;
+        console.log(pattern3.lastIndex);
+        console.log(pattern3.test(testo));
+        console.log(pattern3.lastIndex);
+        console.log(pattern3.test(testo));
+        console.log(pattern3.lastIndex);
+        console.log(pattern3.test(testo));
+        console.log(pattern3.lastIndex);
+        console.log(pattern3.test(testo));
+        console.log(pattern3.lastIndex);
+        console.log(pattern3.test(testo));
+        console.log(pattern3.lastIndex);
+            //abbiamo trovato diverse o nel 'testo' in posizione 4, 7, 16. 
+        console.log('');
+
+        //metodo search()
+            //anzichè valore booleano mi esce il valore dell'indice
+        console.log(testo.search(/o/));
+        console.log(testo.search(/c/));
+        console.log(testo.search(/c/i))
+
+
+
+
+        //metodo exec()
+            //mi ritorna un oggetto anziche numero o booleano
+        console.log(/mon/.exec(testo));
+            //abbiamo trovato corrispondenza con Mondo.
+        console.log(/won/.exec(testo));
+            //in questo caso non abbiamo trovato nulla con 'won'
+
+
+        //metodo match()
+        console.log(testo.match(/mon/));
+            //funziona come exec senza flag global
+
+        //con la flag global
+        console.log(testo.match(/o/g)); //ci sono 4 'o' e 0 'g':
+        console.log('');//serve per fare spazio sulla console
+
+
+        //metodo delle stringhe replace()
+            //conversione di lettere rimpiazzare 'mo' con 'La'
+        let newTesto = testo.replace('mo', 'La')
+        console.log(newTesto);
+            //stessa cosa con le espressioni irregolari
+            //posso creare quacosa di più complesso e sostituire più lettere
+        let newTesto1 = testo.replace(/pia/i,'mo');
+        console.log(newTesto1);
+        console.log('');
+
+
+
+
+
+        //metodo test () contro metodi starsWith() endWith stringhe ES
+
+            //starsWith() endWith sostituiscono il metodo test come alternativa
+            //In questo caso cerchiamo 'tav' nella parola 'tavolo'
+            //col metodo startWith (ossia 'inizia con') cerca le lettere inizali
+        let stringa = 'tavolo';
+        console.log(/^tav/.test(stringa));
+        console.log(stringa.startsWith('tav'));
+        console.log('')
+
+            //nell'esempio seguente si cercano le lettere di come finisce una parola
+            //endsWith (finisce con)
+        console.log(/olo$/.test(stringa));
+        console.log(stringa.endsWith('olo'));
+        console.log('')
+
+
+        //altro es: metodo includes
+        console.log(/vo/.test(stringa));
+        console.log(stringa.includes('vo'));
+
+
+    </script>
+</body>
+</html>

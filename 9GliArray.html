@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display"></p>
+    <script>
+        //creare un array
+        //array letterale
+        let array=['stringa', 45678, true, function(){}, {},[]];
+        //let array2 = new array() sconsigliato
+        console.log(array.length);
+        
+        //array type
+        console.log (typeof array);
+        console.log(array instanceof Array);
+        console.log (Array.isArray(array));
+
+        //aggiungere elemento, attenzione ai buchi
+        //aggiungere elemento () - push/unshift
+        array[0]=34;
+        console.log(array[0]);
+
+        //i tre codici successivi provocano buchi
+        array[10]=34;
+        console.log(array[0]);
+        console.log(array.length);
+
+        //nuovo codicelet 
+        array1 = [1,2,3,4];
+        array1[array1.length]= 1000;
+        console.log(array1[4]);
+        array1.push(2000);
+        console.log(array[0]);
+        console.log(array1.length);
+
+               
+        //eliminare elemento - pop/shift
+
+        let ultimo = array1.pop();
+        console.log(array1.length);
+        console.log(ultimo)
+        array1.shift();
+        console.log(array1.length);
+
+
+
+        //sovrascivere elemento
+
+        console.log(array1[0]);
+        array1[0] = 'stringa';
+        console.log(array1[0]);
+
+        //azzerare Array
+        array = [];
+        console.log(array1.length);
+
+        //ciclare Array
+        let nuovo = [2,45,67];
+        nuovo.forEach(function(elem, index){
+            console.log('Elemento:' + elem + 'indice:' + index);
+        });
+        /*
+        Elemento:2indice:0      
+        Elemento:45indice:1       9GliArray.html:65
+        Elemento:67indice:2       9GliArray.html:65
+                QUESTO è QUELLO CHE USCIRA' NELLA CONSOLE, IN ISPEZIONA ELEMENTI, SICCOME JS
+                INIZIA A CONTARE DA 0 USCIRA' INDICE 0*/
+        
+
+        
+        //concatenare Array concat/push+spread operator 
+        //ossia UNIRE GLI ARRAY
+
+        let uno =[34,56];
+        let due = [67,89];
+        let tre = uno.concat(due);
+        console.log(tre)
+
+        //altro metodo solo con nuovi browser
+        uno.push(...due);
+        console.log(uno);
+
+
+
+        //rimuovere elementi e aggiungerne altri (metodo splice)
+          //primo num =posizione, secondo num = elementi da togliere, lista elementi
+        uno.splice (1, 2); /*dall'indice 1 eliminare due elementi (1, 2)*/
+        console.log(uno);
+        uno.splice(1, 0, 'stringa1', 'stringa2') /*in questo caso siccome la seconda cifra è 0 non verrà eliminato alcun elemento, e verranno aggiunti stringa 1 e stringa 2*/
+        console.log(uno);
+
+        //sort con stringhe
+        let parole = ['mappa', 'canestro', 'mondo'];
+        /*per ordinare in ordine alfabetico utilizza funzione "sort":*/
+        console.log(parole.sort());
+            //per i numeri:
+        let numeri = [3,8,1,5];
+        console.log(numeri.sort(function(a, b) {return a - b}));
+        console.log(numeri.sort(function(a, b) {return b - a})); /*inverso*/
+        
+        //array multidimensionali
+        let multi =[['via Roma', 45], ['corso impero', 67], ['largo augusto', 12]];
+        console.log(multi[1][0]);
+        console.log(multi[2][1]);
+
+        //ESERCIZIO
+        //dati 2 array
+        let uomini = ['Marco', 'Nicola', 'Andrea', 'Stefano'];
+        let donne = ['Maria', 'Serena', 'Lara', 'Marta'];
+        //ottenere nuovo array persone =
+        //["Andrea", "Lara", "Linda", "Luca", "Nicola", "Serena", "Stefano"]
+        //In rdine alfabetico e sostituire alcuni nomi
+        //in modo da formare l'array finale
+        //['Andrea', 'Lara', 'Linda', 'Luca', 'Maria', 'Marta', 'Nicola', 'Stefano']
+        /*COME HO FATTO IO
+        let persone = uomini.concat(donne);
+       persone.splice(0,1, 'Linda')
+       persone.splice(5,1, 'Luca')
+        console.log(persone.sort());*/
+        //COME HA FATTO IL PROF
+        let persone = uomini.concat(donne).sort();
+        console.log(persone);
+        persone.splice(2,3, 'Linda', 'Luca')
+        console.log(persone);
+    </script>
+</body>
+</html>
