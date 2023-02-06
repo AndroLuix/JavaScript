@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="covertiJSon()">
+    <script>
+        function caricaFile(coin) {
+        return new Promise((resolve, reject)=> {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open('GET', `https://api.coinmarketcap.com/v1/ticket/`, true)
+        xhttp.send();
+
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                //console.log(JSON.parse(this.responseText));
+                resolve(this.responseText);
+            } else if (this.status === 404) {
+                reject(new Error(this.responseText));
+            }
+        } 
+        xhttp.onerror = function () {
+            reject(new Error(this.responseText));
+        } 
+        })
+    }
+
+    //promise concatenate
+    /*
+    function convertiJson(dati) {
+        caricaFile(london).then((res)=>{
+            const dati = JSON.parse(res);
+            console.log(dati);
+            return 
+        }).then((res)=>{
+            const dati = JSON.parse(res);
+            console.log(dati);
+            return caricaFile('Washingot')
+        }).catch((err)=>{
+            console.log(err);
+        });
+        }
+    */
+    
+    
+    //fine
+
+    //CON ARRAY IN PARALLELO
+    /*
+    function convertiJson(){
+        Promise.all([
+            caricaFile('bitcoin'), //questo è l'array
+            caricaFile('etherium'),
+            caricaFile('ripplr')
+
+        ]).then((dati) =>{
+            console.log(dati[0]);
+            console.log(dati[1]);
+            console.log(dati[2]);
+        })
+        .catch((err) =>{
+            console.log(err)
+        });
+    }
+    */
+
+    //METODO RACE
+    //ARRAY CON I DATI DOVE IL VALORE MAGGIORE è PRIMO
+    function convertiJson(){
+        promise.race([ //sempre un array
+            caricaFile('bitcoin'),
+            caricaFile('etherium'),
+            caricaFile('ripple'),
+        ])
+        .then((res) =>{ //then serve per catturare le risposte del server
+            console.log(res)
+        })
+        .catch((err) =>{
+            console.log(err)
+        });
+    }
+    convertiJson()
+
+
+
+    </script>
+</body>
+</html>

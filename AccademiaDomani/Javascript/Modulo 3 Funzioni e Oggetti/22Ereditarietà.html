@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display"></p>
+    <script>
+        //ES6 classi
+
+
+
+        //ereditarietà
+        class veicolo{
+            constructor(ruote, motore){
+                this.ruote = ruote;
+                this.motore = motore;
+            }
+            descrizioneVeicolo(){
+                return `Questo è un veicolo' ${this.motore ? 'a motore' : 'a pedali'} ed ha  ${this.ruote} 'ruote`;
+
+            } 
+        }
+        //const veicolo1 = new veicolo(4, true)
+       //console.log( veicolo1.descrizioneVeicolo())
+
+       class Auto extends veicolo {
+        constructor(ruote, motore, marca, colore) {
+            super(ruote, motore)
+            this.marca = marca;
+            this.colore = colore;
+        }
+        descrizioneAuto(){
+            console.log(`${super.descrizioneVeicolo()}, in particolare è un auto${this.marca} di colore ${this.colore}`);
+        }
+       }
+       const polo = new Auto(4, true, ' WV', 'blu');
+       console.log(polo.marca);
+       console.log(polo.ruote);
+       polo.descrizioneAuto();
+       console.log(polo.descrizioneVeicolo());
+
+
+    </script>
+</body>
+</html>

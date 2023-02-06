@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="titolo">Destrutturazione</h1>
+    <p id="display">Par</p>
+
+    <script>
+        let booleano = true;
+        const obj ={
+            stringa: "bla bla bla",
+            numero: 4,
+            //booleano: booleano //quando assegno la proprieta a una variabile dello stesso nome
+            //esiste unaltro metodo
+            booleano
+        };
+        //scompattare proprieta obj
+
+        //const parola = obj.stringa; //metodo prmitivbo
+       //metono ES7
+        const {stringa: parola, numero: num,  booleano: falso} = obj;
+        console.log(parola);
+        console.log(num);
+        console.log(falso);
+
+
+      //BAI A FILE 39ZDIS   
+
+
+
+    </script>
+</body>
+</html>

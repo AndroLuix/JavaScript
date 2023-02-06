@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Blocchi condizionali (conditional statements)
+            //un blocco condizionale cìvien eeseguito solo se una determinata 
+            //espressione è vera
+        //opperatori e valori booleani - sezione 2
+
+
+
+        //sintassi
+
+        //if (espressione){
+        //    //codice
+        //} else {
+            //codice in caso di false
+        //}
+
+             // if (se)
+        let numero = 6;
+        if (numero < 4) {
+            console.log ('codice...');
+        } else {
+            console.log('codice else');
+        }
+
+
+                //esempio con più else if
+          //  if (espressione){
+          //      //codice
+          //  } else if (espressione2) {
+          //      'codice in caso di espressone 2'
+          //  } else if (espressione3) {
+          //      'codice in caso di espressione 3'
+          //  } else {
+          //      'codice in caso di false'
+          //  }
+            
+
+
+        //switch
+        //sintassi
+             //   switch(espressione) {
+             //       case 1:numero
+             //       //blocco codice
+             //       break;
+             //       case 2:numero
+             //       //blocco codice
+             //       break;
+             //       case 3:numero
+             //       //blocco codice
+             //       break;
+             //       default:
+             //           //codice default
+             //   }
+
+        //esempio pratico
+        let num = 6;
+        switch (num){
+            case 4:
+                console.log('Numero 4');
+                break;
+            case 5: 
+                console.log('Numero 5');
+                break;
+            case 6: 
+                console.log('Numero 6');
+                break;
+            default:
+                console.log('default');
+        }
+
+       /* //esempio pratico
+            //l'utente deve inserire un numero primo:
+        let primo = prompt('inserire numero');
+        //convertire stringa in numer (poichè viene letto come stringa)
+
+        switch (primo){
+            case '1':
+            case '2':
+            case '3':
+            case '5':
+            case '7':
+                console.log('Numero primo');
+                break;
+            case '9':
+                console.log('numero dispari');
+                break;
+                default: 
+                console.log('Numero pari')
+
+        }*/
+
+
+
+        //operatore ternario
+        //condizione? se vero : se false :
+
+        let stringa = 5 > 6 ? 'vero' : 'falso';
+        console.log(stringa);
+
+
+
+
+        //esercizio
+        //far inserire un numero intero ad un utente e
+        //dire se e' pari/dispari e negativo/positivo/0
+        let numr = prompt ('Inserire un numero');
+        let ris = '';
+        if (numr > 0) {
+            ris += 'Numero positivo';
+        } else if (numr < 0) {
+            ris += 'Numero negativo';
+        } else { 
+            ris += 'Numero zero';
+        }
+        ris += num % 2 ? ' ed è dispari' : ' ed è pari';
+        console.log(ris);
+
+
+
+    </script>
+</body>
+</html>

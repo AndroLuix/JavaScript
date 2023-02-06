@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display"></p>
+    <script>
+        //parametri
+
+        //parametri passati per valore
+        let num = 10; 
+        function prima(x){
+            x = x - 5; //mofdifica valore parametro
+            console.log(x);
+        }
+        prima(num);//invocazine
+        console.log(num)//print su console
+        //sono usciti due valori su console '5' e '10'
+
+
+        //operatore rest
+
+        function second (x =10){
+            //codice
+        }
+        second()
+
+        //rest ... 
+        function seconda (x, w, z,...y) {
+            console.log(Array.isArray(y));
+            console.log(x);
+            console.log(y);
+
+        } seconda (10, 20, 30, 40);
+        seconda(10,20,30,40,50,60,70,);
+
+        //callback
+             //funzioni passati coem parametri
+             //funziona con codici che lavora in maniera sincrona
+             //ossia dati che vengono inviati als erver
+             //collabora col server dei dati
+
+        function test(x){
+            return x * x
+        }
+        console.log(test(10));
+        console.log(test)//visualizza codice funzione
+        function principale (x, callback) {
+            console.log('Valore di x:', x );
+            console.log(callback(50))//creare funzioen che accetta due parametri 1 parametri qualsiasie  2 una callback
+        }
+        console.log(principale);
+        principale(5,test);
+
+          
+
+
+    </script>
+</body>
+</html>

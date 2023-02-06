@@ -1,0 +1,33 @@
+Ecco una versione corretta del codice:
+
+php
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="disegna()">
+    <canvas id="disegna" height="500" width="500"></canvas>
+
+    <script>
+        function disegna(){
+            var foglio = document.getElementById('disegna').getContext("2d");
+
+            for (i=0; i <=10; i++) {
+                var gradiente = foglio.createRadialGradient (100*i + 50, 100*i + 50, 0, 100*i + 50, 100*i + 50, 50);
+
+                for (fascia = 0; fascia<=255; fascia++){
+                    gradiente.addColorStop((1/255)*fascia,"rgb(0,0," + fascia.toString() + ")"); 
+                }
+                foglio.fillStyle = gradiente;
+                foglio.fillRect (100*i, 100*i, 100, 100);
+            }
+        } 
+    </script>
+
+</body>
+</html>

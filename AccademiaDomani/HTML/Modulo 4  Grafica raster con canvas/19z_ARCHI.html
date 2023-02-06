@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onclick="disegna()">
+    
+
+    <canvas id="disegno" width="500" height="500"></canvas>
+    
+    <div style="align-items: center; margin: auto; text-align: center;">
+        <button id="start" onclick="start()">START</button> <button id="stop" onclick="stop()">STOP</button> <br>
+        Colorami
+    <input type="checkbox" onchange="colore=this.checked;">
+    </div>
+
+    <script type="text/javascript">
+        //DISEGNO DI UNA CURVA
+        timer=null; colore=false;
+        foglio = document.getElementById('disegno').getContext("2d");
+        function start(){
+            x = 250; y = 250;//punto inizio
+            //timer = setInterval (disegna,200);
+            foglio.beginPath(); //istruzioni per la curva:
+            foglio.moveTo(50,50); //pozisionamento punto iniziale
+            foglio.quadraticCurveTo(150,150, 50,300); //punto terminale (50,300) punto di controllo(150,150)
+            foglio.stroke();
+        }
+        
+        
+        function stop(){
+            if (timer) clearInterval(timer);
+        }
+
+        
+        function disegna(){ 
+            foglio.beginPath();
+            //foglio.moveTo(Math.random()*500,Math.random()*500);
+            //foglio.quadraticCurveTo(Math.random()*500,Math.random()*500,
+            //Math.random()*50, Math.random()*50)
+        
+
+            if(colore){
+                var coloreFill = "rgb("+ 
+                Math.floor(Math.random()*256).toString()+","+//rosso
+                Math.floor(Math.random()*256).toString()+","+//verde
+                Math.floor(Math.random()*256).toString()+")";//giallo
+
+                foglio.strokeStyle = coloreFill;
+            }
+            foglio.stroke(); //disegna secondo le coordinate date
+            foglio.closePath();//fine
+        }
+    
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titolo">Titolo</h1>
+    <button id="display" onclick="cancellaColore()">Cliccami</button>
+    <script>
+
+        //La lezione verrò svolta su laragon
+        
+        //web storage object
+
+
+        //window.localStorage: non scade
+        let coloreStorage = localStorage.getItem('colore');
+        if (!coloreStorage) // "!" simbolo di negazione: 'se non esiste coloreStorage'
+        {
+            //se non esiste lo vado a creare
+            let colore =prompt('Inserire un colore')//creo prompt per l'utente
+            localStorage.setItem('colore', colore);
+            document.body.style.backgroundColor = colore
+        } else //se il localestora ha già il valore colore
+        //si va direttamente a colore il background
+        {
+            document.body.style.backgroundColor = coloreStorage
+        }
+
+           //se vogliamo cancellare colore
+
+        function cancellaColore() {
+            localStorage.setItem('colore', ''); //assegno chiave 'colore' a un valore vuoto ''
+            location.reload()
+        }
+
+
+
+        //window.sessionStorage: vale solo per questa sessione, se viene cancelata la pagina viene cancellato i dati
+        
+
+
+
+    </script>
+</body>
+</html>

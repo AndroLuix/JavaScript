@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Titolo</h1>
+    <p id="display" onmouseover="apri()">div</p>
+
+    <script>
+        //Browser Object Model (BOM)
+        //rappresentato dall'oggetto windoe
+        console.log(window);
+        window.document.getElementById('display')//non è obbligatorio scrivelro
+
+        //es: let stringa (stiamo creando una proprietà dell'oggetto window)
+        let stringa ='qwerty';
+        function nuova() {
+            //stiamo creando un metodo dell'oggetto window
+        }
+
+        console.log(window.innerWidth);
+        console.log(window.innerHeight); //cambiare misura finestra winsow (console)
+
+        // posso usare l'ogg window per aprire altre finestre
+
+        function apri(){
+            //accetta diversi parametri
+            window.open('29cosè_il_BOMbis.html', '_blank', 'status=onm, width=200, height=200')
+        }
+
+        //IMPORTANTE possiamo vedere le misure dello schermo dell'utente:
+        console.log(screen.width)
+        console.log(screen.height)
+        console.log(screen.colorDepth)
+
+
+    </script>
+</body>
+</html>

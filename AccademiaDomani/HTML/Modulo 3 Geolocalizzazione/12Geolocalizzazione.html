@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Geolocalizzazione</h1>
+    <p>
+        
+        Parlando di "html5" geolocalizzazione: la prima cosa che bisgona sottolineare è il suppporto consistente dovuto dai vari brownse. <br>
+        ogni browser ha un suo serivizio: <br> 
+        Google: Google location Service <br>
+        Firefx: stesi serivizi, ma no su linux <br>
+        Edge: Microsofr locations Service <br>
+        Safari: apple locations Service <br>
+        Opera: google locations Service <br>
+
+        problemi tecnici: un  proxY del provider. <br>
+        per cui alcuni browser non c'è possibilità di geolocalizzazione: per carenza di alcuni servizi. <br>
+        C'è un servizio ottimale dei browser stessi <br>
+    </p>
+    <H3>Esercizio</H3>
+    <p id="dati">
+        Ti trovi QUI: <br>
+        Latitudine: <span id="latitudine"></span> <br>
+        Longitudine: <span id="longitudine"></span> <br>
+    </p>
+    <button onclick="richiediPosizione()">Localizzami</button>
+
+    <script>
+        //se il browser funziona la funzione riceve un paramentro "posizione"
+        //position oggetto, che a sua volta contiene ifnormazione di dettaglio, sto dicendo di andare nel dettaglio:
+        function successo(posizione)
+        {
+            document.getElementById('latitudine').innerHTML= posizione.coords.latitude;
+            document.getElementById('longitudine').innerHTML = posizione.coords.longitude;
+        }
+       
+
+
+        //funzione in caso di errore
+        function errore (error){
+            alert("Non funziona");
+        }
+        
+         //la funzione cerca di capire se il browser cerca di capire se il browser riesce a localizzare il dispositivo
+        function richiediPosizione(){
+            if (navigator.geolocation)
+            //se funziona si cercano le coordinate:
+            navigator.geolocation.getCurrentPosition(successo, errore); //successo ed errore sono due funzioni: meccanismo di callback.
+            else
+            document.getElementById('dati').innerHTML ="Geolocalizazione non supportata da questo browser.";
+        }
+
+    </script>
+</body>
+</html>

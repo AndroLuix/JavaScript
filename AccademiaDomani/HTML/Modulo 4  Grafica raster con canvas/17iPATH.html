@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path</title>
+</head>
+<body>
+    
+
+    <div style="align-items: center; margin: auto; text-align: center;">
+        <button id="start">START</button> <button id="stop">STOP</button> <br>
+        Colorami
+    <input type="checkbox" name="colora" value="Colorami">
+    </div>
+    <canvas id="disegno" width="500" height="500"></canvas>
+    
+    <script>
+         
+
+        foglio = document.getElementById('disegno').getContext("2d");
+        foglio.strokeStyle = "red";
+        foglio.lineWidth = "8"; //spessore della linea
+
+        foglio.beginPath(); //inizio percorso di tracciamento
+        foglio.moveTo(50,50);// comando di tracciamento del disegno (coordinata X, coordinata Y)
+        foglio.lineTo(200,50);//da coordinata (50,50) fino alla coordinata (200,200)
+        //sta memorizzando le operazioni confermate, ma non sta tracciando
+        //per disegnare 
+       
+        foglio.lineCap = "butt"; //con questo comando si crea una linea semplice, piatta.
+        foglio.stroke(); //questo comando esegue tutte le istruzioni di fila (in pratica disenga tramite coordinate date)
+
+        //altro disegno
+        foglio.beginPath();//inizio percorso di tracciamento
+        foglio.moveTo(50,75);// Y,X
+        foglio.lineTo(200,75);//lunghezza 200 e secondo numero coordinazione
+        foglio.lineCap = "round" //estremità arrotondate
+        foglio.stroke();
+        foglio.closePath();//fine percorso di tracciamento
+
+        foglio.beginPath();//inizio
+        foglio.moveTo(50,100);
+        foglio.lineTo(200,100);
+        foglio.lineTo(150,150); //secondo tracciamento
+        foglio.lineTo(50,100); //chiudere il disegno
+        foglio.lineJoin ="round"; //squdratura
+        foglio.lineCap = "square"; //estremità arrotondate
+        foglio.fillStyle = "green";
+        foglio.fill();
+        foglio.stroke();
+        foglio.closePath();//fine
+
+        /*
+        foglio.beginPath();//inizio
+        foglio.moveTo(50,100);
+        foglio.lineTo(250,150);
+        foglio.lineTo(150,150); //secondo tracciamento
+        foglio.lineJoin ="bevel" //squdratura
+        foglio.lineCap = "square" //estremità arrotondate
+        foglio.stroke();
+        foglio.closePath();//fine
+        */
+
+      
+    </script>
+</body>
+</html>

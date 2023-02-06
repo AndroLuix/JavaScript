@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Usando le canvas avremo comandi di primite grafiche: cerchi, rette e figure geometriche. le bitemen.<br>
+        Il browser non riconosce le modifiche per il canvas. <br>
+        Per trattare il contenuto <br>
+        Tra i punti di forza: performance disegni 2D<br>
+        editing immagini e e-games e controllo livello di pxl<br>
+        animazioni a colpi di JS<br>
+        disegni complessi difficili<br>
+<br>
+        SVG: posso programmare l'oneclick su u  cerchio:<br>
+        miglior supporto animazioni:<br>
+        disegni complessi possibili<br>
+        da il meglio di se per interfacce grafiche interattive e animate<br>
+        ottimo per app di ampie aree da reindirizzare (es Gmaps)<br>
+    </p>
+
+    <h3>Esercizio: Canvas</h3>
+    <canvas id="disegno" width="500" height="500"></canvas>
+
+    <script>
+        function disegna(){
+        var foglio = document.getElementById('disegno').getContext("2d")
+        for (i=0; i<=10; i++){
+            coloreFill="#FF0000"; //codifica esadecimale del colore
+            var coloreFill="#" + Math.floor(Math.random() * 256).toString(16)+ //RR//variabile scelta colori i valori possono spazione per ciascuno dei componenti. //math.random: numero causale da 0 a 1 senza ragggiungere l'uni moltipicato x 256                                                                        
+                                 Math.floor(Math.random() * 256).toString(16)+ //GG//troncare dopo la virogla math.floor numero casuale di 256
+                                 Math.floor(Math.random() * 256).toString(16); //BB//356 numero per variare dalla striga
+                                 //concatenzione con "+"
+
+            foglio.fillStyle= coloreFill;
+            foglio.fillRect (40*i,40*i,40,40) //fino ad ora abbiamo creato i quadrati ma solo di un colore: nero (questa formula serve per formare la geometria)
+        }
+
+        //rettangoli vuoti; scelta del colore
+
+        for (i=0; i<=10; i++){
+            //rgb: (rosso, verde, blu)
+           var coloreFill = "rgb("+ 
+                Math.floor(Math.random() * 256).toString() + ","+ //numero Rosso //variabile scelta colori i valori possono spazione per ciascuno dei componenti. //math.random: numero causale da 0 a 1 senza ragggiungere l'uni moltipicato x 256                                                                        
+                Math.floor(Math.random() * 256).toString() + ","+ //numer Verde//troncare dopo la virogla math.floor numero casuale di 256
+                Math.floor(Math.random() * 256).toString() + ")"; //Numero Blu//256 numero per variare dalla striga
+                                 //concatenzione con "+"
+            foglio.strokeStyle = coloreFill;
+            foglio.strokeRect(41 * i +100,42 * i, 40,40)                              
+        }
+    }
+    setInterval (disegna,1100) //intervallo cambio colori
+
+    disegna()
+
+
+    </script>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aperiam commodi distinctio velit. Velit temporibus repellendus dolorem commodi reprehenderit nihil, quidem eveniet quia. Distinctio, aspernatur? Impedit itaque odit provident! Unde!
+    </p>
+</body>
+</html>

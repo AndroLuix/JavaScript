@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas 2</title>
+</head>
+<body>
+    <p>
+        Usando le canvas avremo comandi di primite grafiche: cerchi, rette e figure geometriche. le bitemen.<br>
+        Il browser non riconosce le modifiche per il canvas. <br>
+        Per trattare il contenuto <br>
+        Tra i punti di forza: performance disegni 2D<br>
+        editing immagini e e-games e controllo livello di pxl<br>
+        animazioni a colpi di JS<br>
+        disegni complessi difficili<br>
+    <br>
+        SVG: posso programmare l'oneclick su u  cerchio:<br>
+        miglior supporto animazioni:<br>
+        disegni complessi possibili<br>
+        da il meglio di se per interfacce grafiche interattive e animate<br>
+        ottimo per app di ampie aree da reindirizzare (es Gmaps)<br>
+    </p>
+
+    <h3>Esercizio: Canvas Gradienti</h3>
+    <canvas id="disegno" width="500" height="500"></canvas>
+
+    <script>
+        function disegno(){
+        var foglio = document.getElementById('disegno').getContext("2d")
+
+        //RETTANGOLI PIENI
+
+        /*
+        for (i=0; i<=10; i++){
+            var gradiente = foglio.createLinearGradient (100 * i, 100 * i, 100 * i + 100, 100 * i + 100); //coordinate
+            gradiente.addColorStop(0.33, "rgb(255,0,0)");
+            gradiente.addColorStop(0.66, "rgb(100,0,0)");
+            gradiente.addColorStop(1, "rgb(255,0,0)");
+
+            foglio.fillStyle= gradiente;
+            foglio.fillRect (100*i,100*i,100,100) // i primi parametri sono lo spostamento del quadrato //gli ultimi due parametri sono altezza e larghezza
+        }
+        */
+
+        for(i=0; i <= 10; i++) {
+            var gradiente = foglio.createLinearGradient(100 * i, 100 * i, 100 * i + 100, 100 * i + 100); 
+            // unaltro ciclo for. infatti per 255 volte comando il rgb. ogni fascia è un  255esimo. nella seconda fascia  come se avesi scritto ogni volta 255 per coprire tuttte le tonalità del rosso
+            // "rgb(" + fascia.toString() + ", 0, 0)"); serve per incrementare di un unita la prima unità dell'RGB
+            for (fascia = 0; fascia<= 255; fascia++){
+                gradiente.addColorStop((1/255) * fascia, "rgb(" + fascia.toString() + ", 0, 0)");
+            } 
+            foglio.fillStyle = gradiente;
+            foglio.fillRect(100*i, 100*i, 100,100);
+        }
+    }
+        disegno()
+
+    </script>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aperiam commodi distinctio velit. Velit temporibus repellendus dolorem commodi reprehenderit nihil, quidem eveniet quia. Distinctio, aspernatur? Impedit itaque odit provident! Unde!
+    </p>
+</body>
+</html>

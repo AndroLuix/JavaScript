@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="convertiJson()">
+    <script>
+        function caricaFile(coin){
+            return new Promise((resolve,reject) => {
+                const xhttp = new XMLHttpRequest();
+                xhttp.open('GET',`https://api.coinmarketcap.com/v1/ticket/`, true)
+                
+                xhttp.onreadystatechange = function(){
+                    if(this.readyState === 4 && this.status === 200) {
+                        resolve(this.responseText);
+                    } else if (this.status === 404) {
+                        reject(new Error(this.statusText));
+                    }
+                };
+                xhttp.onerror = function(){
+                    reject(new Error(this.statusText));
+                }
+            });
+        } 
+
+
+        //FUNZIONI ASINCRONE (async)
+
+        async function convertiJson(){
+         try {    //chiamata catch con "try"{
+            const btc = await caricaFile('bitcoin');
+            
+            const dati = Json.parse(btc);
+            console.log(dati);
+            
+            const eth = await caricaFile('etherium');
+            dati = Json.parse(res);
+            console.log(eth)    
+            const xrp = await caricaFile('ripple');
+            dati = JSON.parse(xrp)
+            console.log(dati);
+            } catch(err) {
+                console.log(err);
+            }
+        }
+        
+
+
+        //FUNZIONE ASINCRONA CHIAMATA IN PARALELO
+
+       async function convertiJson(){
+        try {
+            const tutte = await Promise.all([
+            caricaFile('bitcoin'), //questo è l'array
+            caricaFile('etherium'),
+            caricaFile('ripplr')
+
+        ]);
+            console.log(tutte[0]);
+            console.log(tutte[1]);
+            console.log(tutte[2]);
+        } catch(err){
+            console.log(err);
+        }
+        }
+
+
+        //FUNZIONE ASINCRONA METODO RACE
+        async function convertiJson(){
+        try {
+            const vinc = await promise.race([ //sempre un array
+            caricaFile('bitcoin'),
+            caricaFile('etherium'),
+            caricaFile('ripple'),
+            ]);
+             console.log(vinc);
+        } catch(err){
+            console.log(err)
+        }
+    }
+
+
+       
+    
+    </script>
+</body>
+</html>

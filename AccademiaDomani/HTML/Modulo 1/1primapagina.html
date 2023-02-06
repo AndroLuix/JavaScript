@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="pink">
+    
+    <title>Prima Pagina</title>
+    <p align="center"> <font color="blue"></font> 
+        Prova: tempo fa l'impaginazione veniva utilizzata con le "table" <br>
+        il corso inizia con le basi di <b>CSS</b> <i>Cascade Style Scheet</i> (Fogli di stile in cascata) <br>
+        poi <strong>Javascript</strong> <br>
+        e infine Jquery <br>
+        <strong>JQuery</strong> è un framework ossia una libreria molto potente di funxioni JS xhe ormai sono diventati standard. Questo per il lato client. <br>
+        Per il lato server ci serve PHP e "MySQL" <br>
+    </p>
+    <img src="https://th.bing.com/th/id/OIP.lZUetpbLOwG5fRJiCxJODwHaD4?pid=ImgDet&rs=1" alt="">
+ <section>
+     <form action="1elaboraDati.php" style="border: dashed 2px gray; padding: 5px; background-color: white; width: 45%;"
+     id="inserimentoCliente" name="inserimento" method="get" > <!--In questo caso si usa method = get per visualizzare su URL i dati insriti, con il method = post invece si garantisce la privacy-->
+     <table>
+        <tr>
+            <td>Nome</td> 
+            <td>
+                <input required autofocus autocomplete="on" size="15" maxlength="15" minlength="2" type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" style="background-color: whitesmoke; ">
+            </td> 
+        </tr>
+        <tr>
+            <td>Cognome</td> 
+            <td>
+                <input required autocomplete="on" size="18" maxlength="15" minlength="2" type="text" name="cognome" id="cognome" placeholder="Inserisci il tuo cognome" style="background-color: whitesmoke;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                CAP
+            </td>
+            <td>
+                <input required pattern="[0-9]{5}" type="text" name="cap" id="cap" size="5" maxlength="5" >
+            </td>
+        </tr>
+    </table>
+    <input type="submit" name="Invia" id="invia">
+     </form>
+ </section>
+
+ <section>
+    Esempio: <br>
+    <table>
+        <tr>
+            <td>Nome</td> 
+            <td>
+                <input autofocus size="15" maxlength="15" minlength="2"  readonly value="Mario" type="text" name="nome" id="nome" disabled>
+            </td> 
+        </tr>
+        <tr>
+            <td>Cognome</td> 
+            <td>
+                <input size="18" maxlength="15" minlength="2" readonly value="Rossi" type="text" name="cognome" id="cognome"  disabled>
+            </td>
+        </tr>
+    </table>
+ </section>
+
+    <section> il valore "pattern" per pattern si richede una richiesta di caratteri e quantita di essi da parte dell'utente. <br>
+        le regole sono quelle delle espressioni regolari. A volte sono abbreviate col termine Reg-Exp.
+    
+    </section>
+</body>
+</html>

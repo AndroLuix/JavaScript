@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn" onclick='caricaFile()'> cliccami</button>
+    <p id="display"></p>
+    <script>
+        // AJAX = Asynchronous JavaScript and XML
+        //permette di scambiar info dalla web page  a we server senza ricaricare pagina web
+        //serve un browser serve (laragon, xampp)
+
+        //lezione in cartella: C:\laragon\www\AJAX
+        function caricaFile(){
+            const xhttp = new XMLHttpRequest();
+            xhttp.open('GET','Testo.txt', true);
+            xhttp.send();
+            xhttp.onreadystatechange = function(){
+                if (this.readyState === 4 && this.status ===200){
+                    //1: connession abilitata
+                    //2 ha ricevuto riceista 
+                    // 3 processando richiesta 
+                    //ha processato e inviato risposta
+
+                    //200 il server ha trovato quello che ho chesto
+                    //404 non ha trovato quelo che si volevo
+
+
+                    //manupoliamor icheista server
+                    document.getElementById('display').innerHTML=this.responseText
+                }
+            }
+        }
+        //la connessione ajax serve: vi può dire il file.
+
+
+
+    </script>
+</body>
+</html>

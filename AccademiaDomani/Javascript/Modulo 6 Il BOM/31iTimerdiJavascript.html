@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titolo"></h1>
+    <button id="display" onclick="clearTimeout(timer),
+    clearInterval(intervallo)"> cliccami</button>
+    <div id="animazione" style="width: 150px; height: 150px;
+    background: red; position: relative;">DIV</div>
+    
+    <script>
+        //timer si JS
+        //i timer sono molto usati 
+        function saluta(){
+            console.log('Ciaooo')
+        }
+        //window.setTimeout(saluta, 3000);//3000=3secondi (l'unità è millisecondi)
+        //in questo modo abbiamo creato un output che fa spawnare il saluto dopo 3 secondi
+
+        //se voglio abortire il mio timer prima di 3 seocndi:
+        let timer = window.setTimeout(saluta, 10000); //cliccando il bottone prima di 10 secondi il saluto non verrà visualizzato su console
+
+        //secondo tipo di timer
+
+       /* let intervallo = setInterval(function(){
+            console.log('Ciao mondo')
+        }, 2000);
+        */
+
+        //alternativa  a function: ES6
+        /*let intervallo1 = setInterval(()=>{
+            console.log('Ciao mondo1')
+        }, 2000);
+        */
+
+
+
+        //es pratico
+        let y = 0;
+        function muoviDiv(){
+            if (y < 500) {
+                document.getElementById('animazione').style.left = y + 'px';
+            y += 5;
+            //cambiare asse di y
+            } else {
+                clearInterval(spostaDiv);
+            }
+        } 
+        let spostaDiv = setInterval(muoviDiv, 50)
+
+
+    </script>
+</body>
+</html>
