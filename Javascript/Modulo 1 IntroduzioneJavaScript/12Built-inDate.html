@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display"></p>
+    <p id="display1"></p>
+    <p id="display2"></p>
+    <p id="display3"></p>
+    <p id="display4"></p>
+        <script>
+
+            //creare una data: Date()
+            document.getElementById('display').innerHTML = Date();
+
+
+
+
+            //creare un oggetto data: new Date() ed estrarre dati/valori
+            let data = new Date();
+            console.log('data:', data);
+            console.log('Giorno', data.getDate());
+            console.log('Giorno della settimana:', data.getDay());
+            console.log('Mese', data.getMonth());
+            console.log('Anno', data.getFullYear());
+            console.log('Ora', data.getHours());
+            console.log('Minuti', data.getMinutes());
+
+            //settare una data
+            data.setDate(14);
+            console.log('Nuovo giorno',data);
+            data.setFullYear(2022, 14, 8,);
+            data.setHours(23,30);
+            console.log('Nuovo anno', data);
+            console.log('Nuova Ora', data);
+
+            //timestamp (trona indietro in millisecondi)
+            let nuovaData = new Date(1234567890);
+            console.log('Nuova data', nuovaData)
+            let questoMomento = Date.now();
+            console.log('Questo momento:', questoMomento);
+            //data formato stringa
+            let newData = Date.parse('14 Agoto 2022');
+            console.log('Nuovo timestamp:', newData);
+
+          
+
+            //esempi per creare una data
+
+            let dataDaStringa = new Date('14 ago 2022');
+            console.log('Data da stringa:', dataDaStringa);
+            let dataDaStringaOra = new Date ('24 ago 2022, 23:30:00');
+            console.log ('Data da stringa con ora:', dataDaStringaOra);
+            let DataconNumero = new Date(2022, 08, 14, 23, 30, 10);
+            console.log('Data con numeri', DataconNumero)
+
+              //esempio di operazione
+              let dataDiAdesso = Date.now();
+            //moltiplica millisec. secondi, minuti, ora, giorno (mese, anno, etc...)
+            let fra3giorni = 1000 * 60 * 60 * 24 *3;
+            let totMillsec = dataDiAdesso + fra3giorni;
+            console.log('Fra 3 Giorni:', new Date(totMillsec));
+
+
+
+
+
+        </script>
+</body>
+</html>

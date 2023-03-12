@@ -1,0 +1,58 @@
+<!--DA USARE SU SERVER-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="caricaCookie()">
+    <h1 id="titolo"></h1>
+    <button id="display" onclick="cancellaCookie()">Cancella Cookie</button>
+    <script>
+        //"colore=red; expires=Thu, 20 Dec 2020 00:00:00 UTC; path=/;"
+        //JS puo creare , modificare , cancellare cookie
+        
+        function caricaCookie() {
+            let cookie = document.cookie;
+            if(/colore/.test(cookie)) //espressione regolare 
+            {
+                let cookieColore = document.cookie.split(';');
+                for (const elem of cookieColore) {
+                    if (/colore/.test(elem)) {
+                        cookieColore = elem.split('=');
+                    }
+                }
+                document.body.style.backgroundColor = cookieColore[1];
+            } 
+            
+           
+           
+            else {
+                let colore = prompt('Inserire un colore in inglese');
+                let data = new Date(); 
+                data.setTime(data.getTime() + (1000 * 60 * 60 * 24 *30));  //qui si crea scadenza del cookie (30giorni)
+                let scadenza ='expires=' + data.toUTCString();
+                document.cookie = `colore=${colore};${scadenza};path=/`;
+                location.reload();  //ricarico la pagina
+            }
+        }
+
+        //funzione per cancellare cookie
+        function cancellaCookie(){
+            document.cookie = 'colore=;expires=Thu, 1 Jan 1970 00:00:00 UTC;path=/'
+            location.reload();
+        }
+        
+        /*var colore = caricaCookie ('colore')
+        console.log('Colore scelto dall\'utente'+colore)
+        */ 
+       //qui volevo vedere le scelte dell'utente sulla console
+       
+
+
+    </script>
+</body>
+</html>

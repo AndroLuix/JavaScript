@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titolo"></h1>
+    <div id="display" onclick="linka()">Io sono il div</div>
+
+    <script>
+        console.log(location.href); //mi riporta tutta la path della barra degli indirizzi
+        console.log(location.hostname);  //nome del server
+        console.log(location.pathname); //path senza dominio
+        //posso salvarmi questi valori dentro una variabile
+        //es: metodo split x lavorare un arrray x ogni elemento
+
+        function linka(){
+            //location.assign('https://www.google.com')
+            location.assign('30oggettibis.html');
+        }
+
+
+        //oggetto Navigator
+        console.log(navigator.cookieEnabled)//capire se l'utente ha i cookie abilitati (booleano: true o false)
+        console.log(navigator.appName) //netscape con edge o chrome (noem browser)
+        console.log(navigator.appVersion) //versione di sistema operativo
+        console.log(navigator.language) //lingua
+
+    </script>
+</body>
+</html>

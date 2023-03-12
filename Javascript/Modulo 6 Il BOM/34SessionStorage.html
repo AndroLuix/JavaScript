@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titolo">Titolo</h1>
+    <button id="display" onclick="cancellaColore()">Cliccami</button>
+    <script>
+         //window.sessionStorage: vale solo per questa sessione, se viene cancelata la pagina viene cancellato i dati
+         //la differenza tra localStorage è che questa viene archiaviata, mentre sessionStorage non viene salvato i cookie pertanto vengono cancellati se si riavvia la pagina.
+         
+        let coloreStorage = sessionStorage.getItem('colore');
+        if (!coloreStorage) {
+            let colore = prompt('Inserire un colore')
+            sessionStorage.setItem('colore', colore);
+            document.body.style.backgroundColor = colore
+        } else {
+            document.body.style.backgroundColor = coloreStorage;
+        }
+        function cancellaColore(){
+            sessionStorage.setItem('colore', '');
+            location.reload()
+        }
+    </script>
+</body>
+</html>

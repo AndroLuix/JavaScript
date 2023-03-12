@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="'titolo">Titolo</h1>
+    <div id="display"></div>
+
+    <script>
+     //come crerarte nuovi elementi per il nsotro dom e come navigare tra di essi.
+        //prima tecnica
+
+        let figlio = document.getElementById('display');
+        figlio.innerHTML = '<p>Testo del par figlio</p>';
+
+    //tecnica inserire nuovo nodo
+    //ossia in qst caso nuovo paragrafo
+        //seconda tecnica
+    let p = document.createElement('p');
+    let testo = document.createTextNode('testo del par p (nodo)');
+    document.getElementById('display').appendChild(p);
+
+    let p1 = document.createElement('p');
+    let testo1 = document.createTextNode('unaltro testo del par p1: abbiamo creato unaltro nodo');
+    p1.appendChild(testo1)
+    document.getElementById('display').appendChild(p1);
+
+    let h3 = document.createElement('h3');
+    let titolo = document.createTextNode('Secondo Titolo');
+    h3.appendChild(titolo);
+    document.getElementById('display').appendChild(h3);
+    
+        //perchè viene utilizzato questo metodo anziche' direttamente html?
+        //perchè di performance, per inserire 1 2 elementi usare la rpiam tecnica, se mettere decine centinai di elementi la seconda tecnica
+
+
+    //creare una node list: per vedere quanti elementi si hanno.
+    let nodeList = document.querySelectorAll('p');
+    console.log(nodeList);
+
+    //const nodeList1 = document.querySelectorAll("div > p");
+    //console.log(nodeList1)
+
+    let child = document.getElementById('display').firstChild;
+    console.log(child.nodeName);
+    console.log(child.firstChild.nodeValue); //cosa c'è scritto nel par
+
+    let lastChild = document.getElementById('display').lastChild;
+    console.log(lastChild.firstChild.nodeValue)
+
+
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display"></p>
+    <p id="display1"></p>
+    <p id="display2"></p>
+    <p id="display3"></p>
+    <p id="display4"></p>
+    <script>
+        //come scrivere una stringa 'stringa' "stringa" `stringa` (ALT+ 96)
+        //let stringa1 = 'string con apice';
+        //let stringa2 = "stringa con virgolette";
+
+        // andare a capo con le stringhe (col backslash \)
+
+        let str = `stringa vkjfner h fwihfi uqi frwqofo
+        joisuifhiuhf`;
+        document.getElementById('display1').innerHTML=str;
+
+        let str1 = 'questa stringa ha <br> html';
+        document.getElementById('display2').innerHTML = str1;
+        
+
+        //escape
+        let str2 =  'è arrivata l\'estate';
+        document.getElementById('display').innerHTML = str2;
+
+        //stringa come valore iterabile
+        let str3 ='ciao ciao';
+        //lenght serve per vedere quanti caratteri ha il valore le ossia 'ciao ciao'
+        console.log (str3.length);
+        //in questo caso la console vedrà il singolo carattere nella posizione 5 da 0 a infinito.
+        console.log(str3[5])
+
+        //inserire variabili
+        let uno = 1;
+        let due = 'due';
+
+        //esempio con apice normale
+        /*let str4 = 'La variabile uno:' + uno +'la varibaile due:' + due;
+        document.getElementById('display3').innerHTML = str4;*/ 
+
+        //esempio con apice back stick
+        let str4 = `La variabile uno: ${uno} +
+        la varibaile due: ${due}`;
+        document.getElementById('display3').innerHTML = str4;
+
+        //inserire unicode
+        let str5 = 'ciao \u2026';
+        document.getElementById('display4').innerHTML = str5;
+
+        //oggetto String() e conversione di altri diti di dato
+        let num = 6
+        console.log(typeof num);
+        num = String(num);
+        console.log (typeof num);
+        let newStringa = new String(6);
+        console.log(typeof newStringa);
+
+        let num2 = 5;
+        num2 = '' + num2;
+        console.log(typeof num2);
+
+        //metodi per stringhe
+        let upperCase = 'CIAO';
+        console.log(upperCase.toLowerCase());
+
+        let trim = '    ciao    ';
+        console.log(trim.length);
+        console.log(trim.trim().length);
+
+        </script>
+
+</body>
+</html>

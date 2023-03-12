@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        
+        //introduzione array sez2/11
+
+        //prop: lenght
+        /* metodi: isArray(), push(), pop(), unshift(), shift(), 
+            forEach, concat(), splice(), sort(), form(), entries() */
+
+
+
+
+
+
+        // operatore spread/rest, ciclo for/for..of
+
+
+        let arr1 = ['ciao', 'a', 'tutti', 'a'];
+        
+        //metodo join(), return stringa
+        console.log(arr1.join('/'));
+
+        // metodo includes(), resturn booleano (ES7)
+        console.log(arr1.includes('tutti'));
+
+
+
+        //metodo indexOf() lastIndexOf(), return indice
+        console.log(arr1.indexOf('tutti')); //'tutti' si trova all'indice 2
+        console.log(arr1.lastIndexOf('a'));//in posizione 3 (ultimo elemento alla ricerca)
+
+        //metodo reverse()
+            //ritorna array invertito   
+            console.log(arr1.reverse());
+
+
+
+        let arr2 =[10, 20, 30, 50 ,70, 90, 120]
+        //metodo every() some(), return booleano
+            //every() ritorna booleano: esegui l'operazione su tt gli elementi dell'array il metodo rotornerà vero, altrimenti falso
+            function ricerca(val){
+                return val < 100
+            }
+            let ris1 = arr2.every(ricerca)
+            console.log(ris1)
+            //vero perché non ho elementi numerici maggiori di 100 (dopo ho aggiunto 120 ora è false)
+
+
+            //puo essere scritta col metodo arrow:
+            let ris2 = arr2.every((val) => {
+                return val > 100;
+            }); console.log(ris2)
+            //false perchè non ho elementi numerici maggiori di 100 (non ho capito perchè esce ancora false)
+
+            let ris3 = arr2.some((val) => {
+                return val < 100;
+            }); console.log(ris3)
+                //col metodo some anche solo un valore di 100 risulta vero
+            console.log('')
+
+        // metodo find() findIndex() (ES6), return elemento o indice 
+            //mi ritorna l'elemento o indice
+            let ris4 = arr2.find((val) =>{
+                return val > 100;
+            } );console.log(ris4); //ceca valori numerici maggiori di 100 (120 in questo caso)
+
+            let ris5 = arr2.findIndex((val) =>{
+                return val > 100;
+            }); console.log(ris5) //cerca la quantitù di elementi (numerici) minori di 100 (in qst caso sono 6)
+                console.table([['maggiori di 100', 10, 20, 30, 50, 70, 90,],['min di 100:', 120]])
+                //tabella dimostrativa
+
+
+
+        //metodo filter(), return array
+            //serve per ritornar eun array con alcuni elementi di un array inziiale di tutti quell che 
+            //hanno eseguito il test del call back
+        let ris6 = arr2.filter((val) =>{
+            return val > 100;
+        }); 
+        console.log(ris6);
+        console.log('');
+
+        //metodo map(), return array
+            // va ad eseguire un operazione per ogni elemtno del mio array
+        let ris7 = arr2.map((val) =>{
+            return val * 20;
+        });
+        console.log(ris7);
+        console.log('')
+
+
+
+        //metodo reduce() reduceRight(), return un solo valore
+            //reduce() compatta tt gli elementi d array ficnhe non ne rimane solo 1
+        ris8 = arr2.reduce((val1,val2) =>{
+            return val1 - val2;
+        });
+        console.log(ris8);
+
+        //reduceRight()
+            //sottrazione a partire dal numero che parte a destra
+        ris9 = arr2.reduceRight((val1,val2) =>{
+        return val1 - val2;
+        });
+        console.log(ris9);
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+    <p id="display"></p>
+    <p id="display1"></p>
+    <p id="display2"></p>
+    <p id="display3"></p>
+    <p id="display4"></p>
+
+    <script>
+
+        //CONVERSIONE STRINGHE IN NUEMERI
+        let stringa = '10';
+        console.log(typeof parseInt(stringa));
+        console.log(parseFloat(stringa));
+        console.log(Number(stringa));
+        console.log(typeof +stringa);
+
+        //mix tringa e numeri
+        let mista = 3 + 3 + 'stringa';
+        console.log(mista);
+        let mista1 = 'stringa'+ 3 + 3 ;
+        console.log(mista1);
+
+        //specifica la stringa in decimale convertito in codice binario
+        let num = 145;
+        console.log(num.toString(2));
+        
+        //se non specifico tra le parentesi torna in decimale
+        let num1 = 145;
+        console.log(num.toString());
+
+        //in questo caso è in ottale, perchè 8
+        let num2 = 145;
+        console.log(num.toString(8))
+
+
+
+
+        //NaN (NOT A NUMBER)
+        console.log(isNaN(mista));
+        console.log(isNaN(num));
+
+
+        //INFINITY
+        let divisione = 3 / 0;
+        console.log(divisione)
+
+
+        // NUMERI DECIMALI, OTTALI, ESADECIMALI E BINARI
+        let binario = 0b111;
+        let ottale = 0o3456;
+        let esadecimale = 0xFFAA;
+
+        console.log(parseInt(0xFFAA, 16));
+
+
+        //NUMERI CON LA VIRGOLA (FLOAT)
+
+        //questo è un metodo errato
+        let sommaerrata = 0.1 + 0.2;
+        console.log(sommaerrata);
+
+        //i metodi corretti sono due:
+
+        let somma = 0.1 * 10 + 0.2 * 10;
+        console.log(somma /10);
+        console.log(Number.EPSILON);
+
+        //true o false
+        console.log(0.1 + 0.2 - 0.3 < Number.EPSILON);
+
+        //Max e Min VALUE
+        console.log(Number.MAX_VALUE);
+        console.log(Number.MIN_VALUE);
+
+        //vedere i numeri dopo la virgola
+        let decimale =1.3456789
+        console.log(decimale.toFixed(4))
+
+
+    </script>
+</body>
+</html>

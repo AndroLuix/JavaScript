@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+       <nav>
+        <a href="https://www.w3.org/"> link sito consorzio w3c</a> <br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types">Link per la pagina di mozilla con la lista dei MIME</a><br>
+        <a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction">Link per la pagina di mozilla dove approfondire cross browser testing</a> <br>
+       </nav>
+        <hr>
+        <h1> Esercizio: FUNZIONA SU LARAGON O QUALIASI SERVER</h1>
+        <button id="btn" onclick="scaricaFile()"> File.txt</button>
+
+
+    <script>
+        //vedere la compatibilità con i diversi browser
+        //consorzio W3C
+
+        function scaricaFile(){
+            let elem = document.createElement('a');
+            let file = 'data:text/plain;charset=utf-8'; //iL MIME
+            for (let i = 0; i <10; i++) {
+                file += '\n' + i //concatenzione di stringhe. '\n' serve per ogni interazione mette una nuova riga (10 file e 10 righe)
+            }
+            elem.setAttribute('href',file);
+            elem.download = 'file.txt' //ogni file deve avere qst stringa
+            elem.click();
+        }
+    </script>
+</body>
+</html>

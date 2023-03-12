@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display"></p>
+    <script>
+        //Funzioni sono oggetti
+        function prima (){}
+            console.log(typeof prima);
+            console.log (prima instanceof Object)
+
+        
+
+
+        //Tipi di funzione:
+        //declaration
+        //come creare funzione
+        /*function numFunzione () {};
+        nomeFunzione();*/
+
+
+        //expression
+        let variabile = function() {};
+        variabile();
+
+
+
+        //arrow
+       // (/*parametri*/) => {}
+
+        //method
+            //metodo di un oggetto
+            let oggetto = {proprietà: function() {}
+        };
+        //invocarlo
+        oggetto.proprietà();
+
+        //constructor
+       // let esempio = new Function(console.log('ciao mondo'));
+
+
+
+        //IIFE (funzione che si auto invoca)
+        (function() {
+        console.log('ciao 2');
+        })();
+
+    </script>
+</body>
+</html>

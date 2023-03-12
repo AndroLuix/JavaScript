@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display"></p>
+    <script>
+        //definizione funzione
+        /*function nomeFunz(parametri) {
+            //azione da svolgere
+            return //un valore;
+        }
+        //invoca funzione
+        nomeFunz( arg1, arg2);*/
+
+         //esempio di una miaFunzione ed invocazione
+
+        function moltiplica1 (num1, num2) {
+            let molt1 = numm1 * numm2;
+            return molt1; //questa funzione moltiplica i numer
+        }
+
+        //in modo più abbreviato
+
+        function moltiplica (num1, num2){
+            return num1 * num2;
+        }
+        let risultato = moltiplica (3, 6);
+        console.log(risultato);
+        risultato = moltiplica (5, 10);
+        console.log(risultato);
+
+        //scope
+        let esterna = 5;
+        function visualizza(){
+            console.log(esterna);
+            let interna = 10;
+            console.log(interna);
+        }
+        visualizza();
+        console.log(esterna);
+        //console.log(interna);
+
+
+
+       //funzione senza return
+        function semplice(){
+            console.log('interno');
+        }
+        console.log('Esterno', semplice());
+
+         //invocare una funzione da un'altra miaFunzione
+         function prima()
+         {console.log('Prima funz');}
+
+         function seconda(){
+            console.log('Seconda funzione');
+            prima();        
+        }
+        seconda();
+
+        //parametri di default
+        function moltiplica2(parem1, parem2 = 5){
+            console.log(parem1 * parem2);
+        }
+        moltiplica2(4, 7);
+        moltiplica2(9);
+
+        //ESERCIZIO
+        //crea una stringa output con nome di persona passato come argomento
+        //e calcola mesi e giorni basati sugli anni passati come argomento
+
+        function calcolaMiaEta(nome, eta){
+          //  let mesi = eta * 12;
+         //let giorni = eta * 365
+            document.getElementById('display').innerHTML =
+            `Salve sono ${nome} ed ho ${eta} anni che corrisponde a: ${eta * 12} mesi o a ${eta * 365} giorni`
+        }
+        calcolaMiaEta('Marco', 33);
+
+    </script>
+</body>
+</html>

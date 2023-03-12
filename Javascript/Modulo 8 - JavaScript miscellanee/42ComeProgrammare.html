@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //SI PUO PROGRAMMARE IN MANIERA PERMISSIVA (SLOPPY MOOD)
+        //SI PUO IN MANIERA RIGIDA (STREGHT MODE)
+
+        //con la prima JS chiude un occhio per piccoli errori, tuttavia sommandosi il codice crasha
+        //oppure crasha per incompatibilità
+
+        //maniera severa si usa 'USE STRICT'
+
+        //maniera facile:
+        x = 10 
+        console.log(x);
+        console.log('')
+
+        //maniera difficile
+        /*
+        function miaFunz(){
+            'use strict'
+            y=50; //dice che qui è troppo facile
+            console.log(y)
+        } 
+        miaFunz();
+        */
+        
+        /*
+        'use strict'
+        function miaFunz2(param, param){ //errore dovuto a duplicato parametro
+            return param + param;
+        }
+        console.log(miaFunz2(5,10)) //in questo caso c'è un errore (5+10 = 15, non 20 come in console. perciò si usa 'use strict')
+        */
+
+        //altro esempio
+        'use strict'
+                let yield = 50;
+        console.log(yield);
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

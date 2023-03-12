@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+     //ES classi (keyword: class)
+
+     class Auto { 
+        //si mettono le proprieta
+        constructor(marca, colore){
+            this.marca = marca;
+            this.colore = colore;
+        }
+        //si mettono i metodi
+        descrizione () {
+            console.log(this.marca+ ' ' +this.colore); 
+        }
+     }
+
+     const polo = new Auto ('VW', 'blu');
+     console.log(polo.marca);
+     console.log(polo.colore);
+     polo.descrizione();
+
+
+   </script>
+
+</body>
+</html>

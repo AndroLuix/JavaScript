@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="convertiJson()">
+    <h1 id="titolo">Titolo</h1>
+    <p id="display">DIV</p>
+    <script>
+        //L'API NON C'E'!!!!
+        //Promise al posto di troppe callback per gestire operazioni asincrone
+            //oggetto molto usato per asincrone, per non usare troppi callback
+        
+        //i tre stati:
+        //Peding - FulFilled - Rejected
+            //Peding: ho fatto una richiesta al server e sto aspettando una risposta del server
+            // FulFilled: se la risposta del server è positiva: mi è ritornata i dati richiesta
+            //Rejected: se la richeista viene rifiutata
+
+        //come fare una Promise
+        let prom = new Promise((resolve, reject) => {
+            //resolve: serve per risolvere la promeise per passare allo stato 'Fulfilled'
+            //reject: in risposta negativa il serve ci segnala la fase Rejected
+            //una volta che la promise è Fulfilled o Rejected non può più cambiare il suo stato
+
+            //ora risolviamo la promises:
+            resolve('Promise risolta');
+
+            //per rigettarla invece:
+            //reject('Promise rigettata');
+            //la promise la posso rigettare io oppure se c'è un errore nel server
+         
+        });
+
+        console.log('Inizio')//usiamo la promise:
+        prom.then((res) => {
+            console.log(res);
+        }).catch((err) =>{ //se la promise viene rifiutata: si usa catch((err))
+            console.log('Errore:', err);
+        })
+        console.log('Fine')
+            //su console la promise lavora in maniera asincrona:
+            //perciò è l'ultima cosa che esegue la console
+        
+
+
+
+
+        //https://restcountries.eu //sito per le API 
+        //fare una chiamata verso un server online con AJAX 
+
+        //chiamata al server per un file JSON
+        /*
+        function caricaFile() {
+            const xhttp = new XMLHttpRequest();
+
+            xhttp.open('GET', 'https://restcountries.eu/rest/v2/capital/london', true);
+            xhttp.send();
+
+            xhttp.onreadystatechange = function(){
+                if (this.readyState === 4 && this.status === 200) {
+                    console.log(JSON.parse(this.responseText));
+                }
+            }
+
+
+        }
+
+        function convertiJson(dati) {
+            const data = JSON.parse(dati);
+            console.log(data);
+        }
+
+        */
+
+    //Ora facciamo questo con le promise:
+    function caricaFile() {
+        return new Promise((resolve, reject)=> {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open('GET', 'https://api.coinmarketcap.com/v1/ticket/', true)
+        xhttp.send();
+
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                //console.log(JSON.parse(this.responseText));
+                resolve(this.responseText);
+            } else if (this.status === 404) {
+                reject(new Error(this.responseText));
+            }
+        } 
+        xhttp.onerror = function () {
+            reject(new Error(this.responseText));
+        } 
+        })
+    }
+    function convertiJson(dati) {
+        caricaFile().then((res)=>{
+            const dati = JSON.parse(res);
+            console.log(dati);
+        }).catch((err)=>{
+            console.log(err);
+        });
+
+        }
+    
+
+        
+    </script>
+</body>
+</html>

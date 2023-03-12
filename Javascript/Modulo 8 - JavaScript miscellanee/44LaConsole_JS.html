@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    tutti i vari metodi console qui <a href="https://developer.mozilla.org/en-US/docs/Web/API/Console"></a>
+    la libreria <a href="https://github.com/achille1789/smart-console"></a>
+    <script>
+        //console
+        //stumento importantissimo molto utilizzato dagli sviluppatori
+        //visualizzare un output nella console
+        console.log('del testo...')
+
+        //oppure
+        let str = 'stringa';
+        let num = 10;
+
+        console.log('del testo...',str,num) //se voglio vedere l'elemento delle variabili (in questo caso let) bisgona fare così.
+        
+        //altro metodoo backtick
+        console.log(`del ${str} testo ${num}`);
+
+        // 3 metodo: simil like
+        console.log('del %s testo &d...', str, num); //se voglio visualizzare del testo metto "s%" se voglio visualizzare del testo "%d"
+
+        //metodo warning
+        console.warn ('Attenzione') //semplcemente su console cambia colore per attirare l'attenzione
+
+        //metodo Error
+        //dice che c'è un errore
+        console.error('Error');
+
+        //metodo assert //asserisce:
+            //se l'espressione risulta vera, se risulta falsa visualizza questo mess
+            //questo messaggio (scelto da me)
+        console.assert(num>30, 'Errore in num (è minore di 30)');
+
+
+        //metodo time
+            //prendo il tempo 
+        console.time('loop');
+        for (let i = 0; i < 1000000; i++){
+            //codice vario
+        } //il tempo per esegurie la cifra, qaunto tempo ci impiega jaascript
+        console.timeEnd('loop')//risultato del tempo impiegato
+        //bisgona usare la stessa etichetta.
+
+
+
+        //metodo: console group
+        console.groupCollapsed('miei-logs');
+            console.log('del testo...',str,num)
+            console.log(`del ${str} testo ${num}`);
+            console.log('del %s testo &d...', str, num);
+            console.warn ('Attenzione');
+            console.assert(num<30, 'Errore in num (è minore di 30)');
+        console.groupEnd('miei-logs');
+
+        console.log('')
+
+        //METODO TABLE
+        console.table({uno: 1, due: 2}); //viene visualizzato come una tabella
+            //con Array
+        console.table(['uno','due','tre', 'quattro']);
+            //array multidimensionale
+        console.table([['uno','due',],['tre', 'quattro']])
+
+
+        
+        
+        
+    </script>
+</body>
+</html>

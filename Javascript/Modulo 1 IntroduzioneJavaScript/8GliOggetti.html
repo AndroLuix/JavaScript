@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display"></p>
+    <p id="gatto"></p>
+    <script>
+        //oggetto con proprietà (propeties) e metodi (funzioni/azioni)
+        let persona ={
+            nome: 'Marco',
+            cognome: 'Rossi',
+            eta: 30,
+            eta2: 52,
+            presentarsi: function(){
+                document.getElementById('display').innerHTML = 
+                `Salve io sono ${this.nome} ${this.cognome} ed ho ${this.eta} anni`;
+
+            }
+        };
+        persona.presentarsi();
+        //FINE DEL PRINT
+        
+        console.log(persona.nome);
+        console.log(persona.eta);
+
+        let prop = 'cognome'
+        let prop2 = 'eta'
+        console.log(persona[prop])
+        console.log(persona[prop2 + 2])
+
+        persona.indirizzo = 'via Roma';
+        console.log (persona.indirizzo)
+
+        //elimina
+        delete persona.indirizzo;
+        console.log(persona.indirizzo);
+
+        //ESERCIZIO
+        //creare un nuovo oggetto gatto: razza, colore, nome, azione = output
+        //output: Ho un nuovo gatto di nome Kitti, è un gatto grigio di razza siamese.
+        let gatto ={
+            nome: 'Kitti'.toUpperCase(),
+            colore: 'grigio',
+            razza: 'siamese',
+            descrizione: function(){
+                document.getElementById('gatto').innerHTML =
+                `Ho un nuovo gatto di nome ${this.nome/*toUpperCase()*/}, è un gatto ${this.colore} di razza ${this.razza}.`;
+            }   
+        };
+        
+        gatto.descrizione()
+
+    
+    </script>
+</body>
+</html>

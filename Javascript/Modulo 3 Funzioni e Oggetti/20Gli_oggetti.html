@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display"></p>
+    <script>
+        //oggetto letterale:
+            //si crea:
+            let panda = {
+                marca: 'Fiat',
+                colore: 'rossa',
+                descrizione: function() {
+                    console.log(this.marca + ' '+this.colore);
+                }
+            }
+            panda.descrizione();
+            panda.ruote = 4;
+            console.log(panda.ruote);
+
+
+
+
+            //costruttore e prototipi
+            function Auto(marca,colore){
+                this.marca = marca;
+                this.colore = colore;
+                this.descrizione = function() {
+                    console.log(this.marca + ' ' + this.colore);
+                }
+
+            }
+            const polo = new Auto('Vw', 'blu');
+            console.log(polo.marca + " " + polo.colore);
+            polo.descrizione();
+
+            const astra = new Auto ('Opel','verde');
+            console.log(astra.marca);
+            console.log(astra.colore);
+            astra.descrizione();
+
+            const mbenz = new Auto('Mbenz','grigia');
+            console.log(mbenz.marca);
+            console.log(mbenz.colore);
+            mbenz.descrizione()
+
+            console.log(polo instanceof Auto);
+
+            Auto.prototype.chilometriaggio = 100;
+            console.log(polo.chilometriaggio);
+            console.log(astra.chilometriaggio);
+            console.log(mbenz.chilometriaggio);
+
+
+            Auto.prototype.tagliando = function(kmFuturi) {
+                console.log(this.chilometriaggio + kmFuturi)
+                console.log('')
+
+
+            
+
+            }
+            polo.tagliando('Polo tagliando:'+500);
+            astra.tagliando('Astra tagliando:'+1600);
+            mbenz.tagliando('M-Benz tagliando:' +1800)
+
+            
+
+
+
+    </script>
+</body>
+</html>
